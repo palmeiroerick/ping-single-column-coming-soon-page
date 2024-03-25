@@ -5,34 +5,34 @@ export default function Home() {
     "border-paleBlue fill-blue flex h-9 w-9 shadow-sm cursor-pointer items-center justify-center rounded-full border-[1px] p-2 hover:border-softMagenta hover:fill-softMagenta lg:w-10 lg:h-10";
 
   return (
-    <main className="flex flex-col items-center justify-between gap-14 px-6 pb-10 pt-24">
+    <main className="flex min-h-screen flex-col items-center justify-between gap-14 px-6 pb-10 pt-24">
       <div className="flex w-full flex-col items-center gap-8 px-4">
-        <div className="flex flex-col gap-6">
-          <p className="text-center text-2xl font-bold uppercase text-veryDarkBlue">
+        <div className="lg:gap-8 flex flex-col gap-6">
+          <p className="lg:text-4xl text-center text-2xl font-bold uppercase text-veryDarkBlue">
             ping<span className="text-blue">.</span>
           </p>
-          <div className="flex flex-col items-center gap-3">
-            <h1 className="text-2xl text-gray">
+          <div className="lg:gap-4 flex flex-col items-center gap-3">
+            <h1 className="lg:text-5xl text-2xl text-gray">
               We are launching{" "}
               <span className="font-bold text-veryDarkBlue">soon!</span>
             </h1>
-            <p className="text-sm text-veryDarkBlue">
+            <p className="lg:text-lg text-sm text-veryDarkBlue">
               Subscribe and get notified
             </p>
           </div>
         </div>
-        <form className="flex w-80 flex-col gap-4">
+        <form className="lg:flex-row lg:w-auto flex w-80 flex-col gap-4">
           <input
             type="text"
             placeholder="Your email address..."
-            className="h-12 w-full rounded-full border border-paleBlue px-8 text-sm shadow-lg"
+            className="lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border border-paleBlue px-8 text-sm shadow-lg outline-none"
           />
-          <button className="h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg">
+          <button className="lg:w-44 lg:text-base lg:h-14 h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg">
             Notify Me
           </button>
         </form>
       </div>
-      <div className="relative h-52 min-h-52 w-80 min-w-80">
+      <div className="lg:w-[36rem] lg:h-[22rem] relative h-52 min-h-52 w-80 min-w-80">
         <Image
           className="object-contain"
           src="/illustration-dashboard.png"
