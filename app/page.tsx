@@ -8,7 +8,8 @@ export default function Home() {
     "border-paleBlue fill-blue flex h-9 w-9 shadow-sm cursor-pointer items-center justify-center rounded-full border-[1px] p-2 hover:bg-blue hover:fill-white transition lg:w-10 lg:h-10";
 
   const [mail, setMail] = useState<string>("");
-  const [validMail, setValidMail] = useState<boolean>();
+  const [validMail, setValidMail] = useState<boolean | null>(null);
+  const [errorWarning, setErrorWarning] = useState<string>("");
 
   const mailChange = (event: any) => {
     setMail(event.target.value);
@@ -18,12 +19,19 @@ export default function Home() {
     event.preventDefault();
     const regex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-    if (regex.test(mail)) {
-      setValidMail(true);
-      alert("Thanks");
-      setMail("");
-    } else {
+    if (mail === "") {
       setValidMail(false);
+      setErrorWarning("Whoops! It looks like you forgot to add your email");
+    } else {
+      if (regex.test(mail)) {
+        setValidMail(null);
+        alert("Thanks");
+        setMail("");
+        verifyMail;
+      } else {
+        setErrorWarning("Please provide a valid email address");
+        setValidMail(false);
+      }
     }
   };
 
@@ -51,13 +59,13 @@ export default function Home() {
               value={mail}
               onChange={mailChange}
               placeholder="Your email address..."
-              className={`${validMail || validMail === undefined ? "border-paleBlue" : "border-lightRed"} lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border px-8 text-sm shadow-lg outline-none`}
+              className={`${validMail || validMail === null ? "border-paleBlue" : "border-lightRed"} lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border px-8 text-sm shadow-lg outline-none`}
             />
-            {validMail || validMail === undefined ? (
+            {validMail || validMail === null ? (
               ""
             ) : (
               <p className="text-center text-[13px] italic text-lightRed">
-                Please provide a valid email address
+                {errorWarning}
               </p>
             )}
           </div>
