@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
   const socialIconsClassName =
-    "border-paleBlue fill-blue flex h-9 w-9 shadow-sm cursor-pointer items-center justify-center rounded-full border-[1px] p-2 hover:border-softMagenta hover:fill-softMagenta lg:w-10 lg:h-10";
+    "border-paleBlue fill-blue flex h-9 w-9 shadow-sm cursor-pointer items-center justify-center rounded-full border-[1px] p-2 hover:bg-blue hover:fill-white transition lg:w-10 lg:h-10";
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between gap-14 px-6 pb-10 pt-24">
@@ -27,7 +27,7 @@ export default function Home() {
             placeholder="Your email address..."
             className="lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border border-paleBlue px-8 text-sm shadow-lg outline-none"
           />
-          <button className="lg:w-44 lg:text-base lg:h-14 h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg">
+          <button className="lg:w-44 lg:text-base lg:h-14 h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg transition hover:opacity-65">
             Notify Me
           </button>
         </form>
