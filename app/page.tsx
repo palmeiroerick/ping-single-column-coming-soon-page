@@ -1,8 +1,31 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
   const socialIconsClassName =
     "border-paleBlue fill-blue flex h-9 w-9 shadow-sm cursor-pointer items-center justify-center rounded-full border-[1px] p-2 hover:bg-blue hover:fill-white transition lg:w-10 lg:h-10";
+
+  const [mail, setMail] = useState<string>("");
+  const [validMail, setValidMail] = useState<boolean>();
+
+  const mailChange = (event: any) => {
+    setMail(event.target.value);
+  };
+
+  const verifyMail = (event: any) => {
+    event.preventDefault();
+    const regex: RegExp = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    if (regex.test(mail)) {
+      setValidMail(true);
+      alert("Thanks");
+      setMail("");
+    } else {
+      setValidMail(false);
+    }
+  };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between gap-14 px-6 pb-10 pt-24">
@@ -21,13 +44,27 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <form className="lg:flex-row lg:w-auto flex w-80 flex-col gap-4">
-          <input
-            type="text"
-            placeholder="Your email address..."
-            className="lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border border-paleBlue px-8 text-sm shadow-lg outline-none"
-          />
-          <button className="lg:w-44 lg:text-base lg:h-14 h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg transition hover:opacity-65">
+        <form className="lg:flex-row lg:w-auto lg:h-[75.5px] flex h-[131.5px] w-80 flex-col gap-4">
+          <div>
+            <input
+              type="text"
+              value={mail}
+              onChange={mailChange}
+              placeholder="Your email address..."
+              className={`${validMail || validMail === undefined ? "border-paleBlue" : "border-lightRed"} lg:w-96 lg:h-14 lg:text-base h-12 w-full rounded-full border px-8 text-sm shadow-lg outline-none`}
+            />
+            {validMail || validMail === undefined ? (
+              ""
+            ) : (
+              <p className="text-center text-[13px] italic text-lightRed">
+                Please provide a valid email address
+              </p>
+            )}
+          </div>
+          <button
+            onClick={verifyMail}
+            className="lg:w-44 lg:text-base lg:h-14 h-12 w-full rounded-full bg-blue text-sm font-semibold text-white shadow-lg outline-none transition hover:opacity-65"
+          >
             Notify Me
           </button>
         </form>
