@@ -22,12 +22,12 @@ Users should be able to:
 
 ## Screenshot
 
-![](./screenshot.jpg)
+![Screen Shot 2024-03-25 at 12 50 13](https://github.com/palmeiroerick/ping-single-column-coming-soon-page/assets/148393698/73c3d9fc-ec95-4a26-9633-5f58e0160f37)
 
 ## Links
 
-- [Solution]()
-- [Live Site]()
+- [Solution](https://github.com/palmeiroerick/ping-single-column-coming-soon-page/)
+- [Live Site](https://ping-single-column-coming-soon-page-one.vercel.app/)
 
 ## Built with
 
